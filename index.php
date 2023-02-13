@@ -10,7 +10,7 @@ try {
 
     $con = new PDO("mysql:host=$server;dbname=$db", $user, $pwd );
     echo 'ok';
-
+/*
     $sql = "DELETE FROM user WHERE id = 4";
     $con->exec($sql);
 
@@ -18,6 +18,27 @@ try {
         echo 'l\'ID 4 a été supprimé';
     }
 
+    echo '<br>';
+
+    $sql2 = "TRUNCATE TABLE user";
+    $con->exec($sql2);
+    if ($con->exec($sql2) !== false) {
+        echo "Contenu de la table supp";
+    }
+
+
+    $sql3 = "INSERT INTO user (nom, prenom, rue, numero, code_postal, ville, pays, mail)
+    VALUES ('Debout', 'Damien', 'rue machin', 53, 03490, 'Hirson', 'France', 'dam.deb@klfj.fr')
+    ";
+
+    $con->exec($sql3);
+
+    //$sql4 = "DROP TABLE user";
+    //$con->exec($sql4);
+
+*/
+    $sql5 = "DROP DATABASE $db";
+    $con->exec($sql5);
 }
  catch(PDOException $exception) {
     echo $exception->getMessage();
